@@ -8,6 +8,28 @@
 </head>
 
 <body>
+  <div class="form-wrapper">
+    <div class="close-button-div">
+      <button class="close-button">X</button>
+    </div>
+
+    <div class="form">
+      <label for="task">Task</label>
+      <input onfocus="this.value=''" type="text" name="task" id="task" placeholder="Add a task">
+
+      <label for="status">Current chapter</label>
+      <input onfocus="this.value=''" type="text" name="status" id="status" placeholder="Add chapter">
+
+      <label for="goal">Goal</label>
+      <input onfocus="this.value=''" type="text" name="goal" id="goal" placeholder="Add a goal">
+
+      <label for="progress">Set progress</label>
+      <input onfocus="this.value=''" type="text" name="progress" id="progress" placeholder="Set progress">
+
+      <button id="form-button">Add new routine</button>
+    </div>
+  </div>
+
   <section class="title-section">
     <div>
       <h1>Willpower of the day!</h1>
@@ -36,26 +58,6 @@
           <td>progress bar</td>
         </tr>
       </table>
-    </div>
-
-    <div class="div-form-button">
-      <div class="close-button-div">
-        <button class="close-button">X</button>
-      </div>
-
-      <label for="task">Task</label>
-      <input onfocus="this.value=''" type="text" name="task" id="task" placeholder="Add a task">
-
-      <label for="status">Current chapter</label>
-      <input onfocus="this.value=''" type="text" name="status" id="status" placeholder="Add chapter">
-
-      <label for="goal">Goal</label>
-      <input onfocus="this.value=''" type="text" name="goal" id="goal" placeholder="Add a goal">
-
-      <label for="progress">Set progress</label>
-      <input onfocus="this.value=''" type="text" name="progress" id="progress" placeholder="Set progress">
-
-      <button id="form-button">Add new routine</button>
     </div>
   </section>
 </body>

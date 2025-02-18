@@ -10,6 +10,7 @@ html {
 
 body {
   background-color: #fff;
+  min-height: 100vh;
 }
 
 table {
@@ -46,26 +47,49 @@ tr:nth-child(even) {
   padding-bottom: 3rem;
 }
 
-.div-form-button {
+.form-wrapper {
   display: none;
   flex-direction: column;
-  text-align: center;
   position: fixed;
   background-color: rgb(211 211 211);
   width: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 4rem 4rem 4rem;
+}
+
+.form label {
+  padding: 2rem 0 0 0;
+  font-size: 2rem;
 }
 
 #task, #status, #goal, #progress {
   height: 4rem;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.form #form-button {
+  padding: 2rem;
   font-size: 3rem;
 }
 
-.div-form-button button {
-  padding: 4px;
-  font-size: 13px;
+#form-button {
+  margin-top: 10rem;
 }
 
 .close-button-div {
   display: flex;
   justify-content: end;
+  padding: 1rem;
+}
+
+.close-button {
+  padding: 1px 5px;
 }

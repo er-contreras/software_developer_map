@@ -34,7 +34,7 @@ button.addEventListener("click", myFunction);
 
 // When click button show popup window to add new task
 const new_task_button = document.querySelector("#add-new-task-button");
-const div_form_button = document.querySelector(".div-form-button");
+const div_form_button = document.querySelector(".form-wrapper");
 
 new_task_button.addEventListener("click", () => {
   div_form_button.style.display = "flex";
