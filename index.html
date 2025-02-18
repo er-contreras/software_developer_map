@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Willpower</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="./script.js"></script>
+</head>
+
+<body>
+  <section class="title-section">
+    <div>
+      <h1>Willpower of the day!</h1>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="daily-routine-title">
+      <h2>Daily Routine</h2>
+      <p>Where do you focus your willpower today?</p>
+    </div>
+
+    <div id="table-div">
+      <table>
+        <tr>
+          <th>Task</th>
+          <th>Current Status</th>
+          <th>Goal</th>
+        </tr>
+        <tr>
+          <td>Algorithms and Data Structure</td>
+          <td>Chapter 1</td>
+          <td>Finish book?</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="form-button">
+      <label for="task">Task</label>
+      <input onfocus="this.value=''" type="text" name="task" id="task" placeholder="Add a task">
+      <label for="status">Current chapter</label>
+      <input onfocus="this.value=''" type="text" name="status" id="status" placeholder="Add chapter">
+      <label for="goal">Goal</label>
+      <input onfocus="this.value=''" type="text" name="goal" id="goal" placeholder="Add a goal">
+
+      <button>Add new routine</button>
+    </div>
+  </section>
+</body>
+
+</html>

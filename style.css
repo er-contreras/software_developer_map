@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #fff;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.title-section {
+  text-align: center;
+  font-size: 6rem;
+  padding-top: 12rem;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3rem;
+  padding-top: 12rem;
+}
+
+.daily-routine-title {
+  padding-bottom: 3rem;
+}
+
+.form-button {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 3rem;
+}
+
+.form-button button {
+  padding: 2rem;
+  font-size: 3rem;
+}
