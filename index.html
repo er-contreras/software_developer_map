@@ -18,32 +18,44 @@
     <div class="daily-routine-title">
       <h2>Daily Routine</h2>
       <p>Where do you focus your willpower today?</p>
+      <button id="add-new-task-button">Add new task</button>
     </div>
 
     <div id="table-div">
       <table>
         <tr>
           <th>Task</th>
-          <th>Current Status</th>
+          <th>Current Chapter</th>
           <th>Goal</th>
+          <th>Progress</th>
         </tr>
         <tr>
           <td>Algorithms and Data Structure</td>
           <td>Chapter 1</td>
-          <td>Finish book?</td>
+          <td>1 month</td>
+          <td>progress bar</td>
         </tr>
       </table>
     </div>
 
-    <div class="form-button">
+    <div class="div-form-button">
+      <div class="close-button-div">
+        <button class="close-button">X</button>
+      </div>
+
       <label for="task">Task</label>
       <input onfocus="this.value=''" type="text" name="task" id="task" placeholder="Add a task">
+
       <label for="status">Current chapter</label>
       <input onfocus="this.value=''" type="text" name="status" id="status" placeholder="Add chapter">
+
       <label for="goal">Goal</label>
       <input onfocus="this.value=''" type="text" name="goal" id="goal" placeholder="Add a goal">
 
-      <button>Add new routine</button>
+      <label for="progress">Set progress</label>
+      <input onfocus="this.value=''" type="text" name="progress" id="progress" placeholder="Set progress">
+
+      <button id="form-button">Add new routine</button>
     </div>
   </section>
 </body>

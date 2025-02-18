@@ -46,14 +46,26 @@ tr:nth-child(even) {
   padding-bottom: 3rem;
 }
 
-.form-button {
-  display: flex;
+.div-form-button {
+  display: none;
   flex-direction: column;
   text-align: center;
-  padding-top: 3rem;
+  position: fixed;
+  background-color: rgb(211 211 211);
+  width: 30%;
 }
 
-.form-button button {
-  padding: 2rem;
+#task, #status, #goal, #progress {
+  height: 4rem;
   font-size: 3rem;
+}
+
+.div-form-button button {
+  padding: 4px;
+  font-size: 13px;
+}
+
+.close-button-div {
+  display: flex;
+  justify-content: end;
 }
