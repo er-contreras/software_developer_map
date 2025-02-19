@@ -14,12 +14,23 @@ function createTableData() {
   const remove_data = document.createElement("td");
   const remove_btn = document.createElement("button");
 
+  const rows = document.querySelectorAll('tr[id^="task-row-"]');
+  const rowCount = rows.length;
+
+  table_row.id = `task-row-${rowCount}`;
   task_data.textContent = `${task}`;
   task_status_data.textContent = `${task_status}`;
   goal_data.textContent = `${goal}`;
   progress_data.textContent = `${progress}`;
   remove_btn.textContent = "Remove";
-  remove_btn.className = "task-btn";
+
+
+  const remove_btns = document.querySelectorAll('button[id^="task-btn-"]');
+  const rmv_btn_count = remove_btns.length;
+  remove_btn.id = `task-btn-${rmv_btn_count}`;
+  remove_btn.onclick = function() {
+    removeTask(this);
+  }
 
   table_body.appendChild(table_row);
   table_row.appendChild(task_data);
@@ -45,3 +56,18 @@ const close_btn = document.querySelector(".close-btn");
 close_btn.addEventListener("click", () => {
   div_form_btn.style.display = "none";
 })
+
+// Code to remove tasks
+function removeTask(btn) {
+  if (btn) {
+    const row = btn.parentNode.parentNode;
+    
+    if (row) {
+      row.remove();
+    } else {
+      console.error("Row not found!");
+    }
+  } else {
+    console.log("Button not found!");
+  }
+}

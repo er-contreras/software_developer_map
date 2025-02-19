@@ -54,7 +54,7 @@ tr:nth-child(even) {
   padding-bottom: 3rem;
 }
 
-#add-new-task-btn, .task-btn, .close-btn, #form-btn {
+#add-new-task-btn, [id^="task-btn"], .close-btn, #form-btn {
   cursor: pointer;
 }
 
@@ -91,7 +91,7 @@ tr:nth-child(even) {
   padding: 1rem;
 }
 
-.task-btn {
+[id^="task-btn-"] {
   padding: 4px;
 }
 

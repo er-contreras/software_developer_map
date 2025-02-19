@@ -5,7 +5,6 @@
   <title>Willpower</title>
   <link rel="stylesheet" type="text/css" href="./styles/style.css">
   <script defer src="./scripts/script.js"></script>
-  <script defer src="./scripts/remove_btn.js"></script>
 </head>
 
 <body>
@@ -53,12 +52,12 @@
           <th>Progress</th>
           <th></th>
         </tr>
-        <tr>
+        <tr id="task-row-0">
           <td>Example of task</td>
           <td>Example of current what ever</td>
           <td>Example of any goal</td>
           <td>0% ========= 100%</td>
-          <td><button class="task-btn">Remove</button></td>
+            <td><button onclick="removeTask(this)" id="task-btn-0">Remove</button></td>
         </tr>
       </table>
     </div>
