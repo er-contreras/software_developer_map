@@ -54,11 +54,11 @@ tr:nth-child(even) {
   padding-bottom: 3rem;
 }
 
-#add-new-task-button, .task-btn, .close-button, #form-button {
+#add-new-task-btn, .task-btn, .close-btn, #form-btn {
   cursor: pointer;
 }
 
-#add-new-task-button {
+#add-new-task-btn {
   padding: 5px;
   font-size: 13px;
 }
@@ -95,22 +95,22 @@ tr:nth-child(even) {
   padding: 4px;
 }
 
-.form #form-button {
+.form #form-btn {
   padding: 2rem;
   font-size: 3rem;
 }
 
-#form-button {
+#form-btn {
   margin-top: 10rem;
 }
 
-.close-button-div {
+.close-btn-div {
   display: flex;
   justify-content: end;
   padding: 1rem;
 }
 
-.close-button {
+.close-btn {
   padding: 1px 5px;
 }
 
