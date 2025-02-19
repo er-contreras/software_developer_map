@@ -22,9 +22,13 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #b9b9b9;
   text-align: left;
   padding: 8px;
+}
+
+td {
+  font-size: 17px;
 }
 
 tr:nth-child(even) {
@@ -33,7 +37,7 @@ tr:nth-child(even) {
 
 .title-section {
   text-align: center;
-  font-size: 6rem;
+  font-size: 5rem;
   padding-top: 12rem;
 }
 
@@ -41,13 +45,22 @@ tr:nth-child(even) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 3rem;
+  font-size: 2rem;
   padding-top: 12rem;
   flex: 1;
 }
 
 .daily-routine-title {
   padding-bottom: 3rem;
+}
+
+#add-new-task-button, .task-btn, .close-button, #form-button {
+  cursor: pointer;
+}
+
+#add-new-task-button {
+  padding: 5px;
+  font-size: 13px;
 }
 
 .form-wrapper {
@@ -76,6 +89,10 @@ tr:nth-child(even) {
   height: 4rem;
   font-size: 2rem;
   padding: 1rem;
+}
+
+.task-btn {
+  padding: 4px;
 }
 
 .form #form-button {

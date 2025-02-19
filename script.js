@@ -16,17 +16,23 @@ function myFunction() {
   const table_data2 = document.createElement("td");
   const table_data3 = document.createElement("td");
   const table_data4 = document.createElement("td");
+  const table_data5 = document.createElement("td");
+  const table_btn = document.createElement("button");
 
   table_data.textContent = `${input_task}`;
   table_data2.textContent = `${input_status}`;
   table_data3.textContent = `${input_goal}`;
   table_data4.textContent = `${input_progress}`;
+  table_btn.textContent = "Remove";
+  table_btn.className = "task-btn";
 
   table_body.appendChild(table_row);
   table_row.appendChild(table_data);
   table_row.appendChild(table_data2);
   table_row.appendChild(table_data3);
   table_row.appendChild(table_data4);
+  table_row.appendChild(table_data5);
+  table_data5.appendChild(table_btn);
 }
 
 let button = document.querySelector("#form-button");
