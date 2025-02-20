@@ -13,7 +13,7 @@
       <button class="close-btn">X</button>
     </div>
 
-    <div class="form">
+    <form class="form">
       <label for="task">Task</label>
       <input onfocus="this.value=''" type="text" name="task" id="task" placeholder="Add a task">
 
@@ -26,8 +26,8 @@
       <label for="progress">Set progress</label>
       <input onfocus="this.value=''" type="text" name="progress" id="progress" placeholder="Set progress">
 
-      <button onclick="createTableData()" id="form-btn">Add new routine</button>
-    </div>
+      <button id="form-btn">Add new routine</button>
+    </form>
   </div>
 
   <section class="title-section">
@@ -57,7 +57,7 @@
           <td>Example current status</td>
           <td>Example goal</td>
           <td>0% ========= 100%</td>
-            <td><button onclick="removeTask(this)" id="task-btn-0">Remove</button></td>
+            <td><button id="task-btn-0">Remove</button></td>
         </tr>
       </table>
     </div>

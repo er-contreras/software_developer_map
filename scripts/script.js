@@ -1,70 +1,78 @@
-// Add new table data dinamically 
-function createTableData() {
-  const task = document.querySelector("#task").value;
-  const task_status = document.querySelector("#status").value;
-  const goal = document.querySelector("#goal").value;
-  const progress = document.querySelector("#progress").value;
-  const table_body = document.querySelector("table tbody");
+// Constants for selectors (good practice to avoid typos and make changes easier)
+const TASK_INPUT_ID = "#task";
+const STATUS_INPUT_ID = "#status";
+const GOAL_INPUT_ID = "#goal";
+const PROGRESS_INPUT_ID = "#progress";
+const TABLE_BODY_SELECTOR = "table tbody";
+const ADD_TASK_BUTTON_ID = "#add-new-task-btn";
+const FORM_WRAPPER_SELECTOR = ".form-wrapper";
+const CLOSE_BUTTON_SELECTOR = ".close-btn";
 
-  const table_row = document.createElement("tr");
-  const task_data = document.createElement("td");
-  const task_status_data = document.createElement("td");
-  const goal_data = document.createElement("td");
-  const progress_data = document.createElement("td");
-  const remove_data = document.createElement("td");
-  const remove_btn = document.createElement("button");
+// Function to create a single table row
+function createTableRow(task, status, goal, progress, rowCount) {
+  const row = document.createElement("tr");
+  row.id = `task-row-${rowCount}`;
 
-  const rows = document.querySelectorAll('tr[id^="task-row-"]');
-  const rowCount = rows.length;
+  const cells = [task, status, goal, progress].map(text => {
+    const cell = document.createElement("td");
+    cell.textContent = text;
+    return cell;
+  });
 
-  table_row.id = `task-row-${rowCount}`;
-  task_data.textContent = `${task}`;
-  task_status_data.textContent = `${task_status}`;
-  goal_data.textContent = `${goal}`;
-  progress_data.textContent = `${progress}`;
-  remove_btn.textContent = "Remove";
+  const removeCell = document.createElement("td");
+  const removeButton = document.createElement("button");
+  removeButton.textContent = "Remove";
+  removeButton.id = `task-btn-${rowCount}`; // Use rowCount for button ID as well.
+  removeButton.addEventListener("click", () => removeTask(row)); // Pass the row directly
+  removeCell.appendChild(removeButton);
 
-
-  const remove_btns = document.querySelectorAll('button[id^="task-btn-"]');
-  const rmv_btn_count = remove_btns.length;
-  remove_btn.id = `task-btn-${rmv_btn_count}`;
-  remove_btn.onclick = function() {
-    removeTask(this);
-  }
-
-  table_body.appendChild(table_row);
-  table_row.appendChild(task_data);
-  table_row.appendChild(task_status_data);
-  table_row.appendChild(goal_data);
-  table_row.appendChild(progress_data);
-  table_row.appendChild(remove_data);
-  remove_data.appendChild(remove_btn);
+  row.append(...cells, removeCell); // Append all cells at once
+  return row;
 }
 
-// When click button show popup window to add new task
-const new_task_btn = document.querySelector("#add-new-task-btn");
-const div_form_btn = document.querySelector(".form-wrapper");
+// Function to add a new task to the table
+function addNewTask() {
+  const task = document.querySelector(TASK_INPUT_ID).value;
+  const status = document.querySelector(STATUS_INPUT_ID).value;
+  const goal = document.querySelector(GOAL_INPUT_ID).value;
+  const progress = document.querySelector(PROGRESS_INPUT_ID).value;
+  const tableBody = document.querySelector(TABLE_BODY_SELECTOR);
 
-new_task_btn.addEventListener("click", () => {
-  div_form_btn.style.display = "flex";
-})
+  const rowCount = tableBody.querySelectorAll('tr[id^="task-row-"]').length; //More efficient way to count rows
 
-const close_btn = document.querySelector(".close-btn");
-close_btn.addEventListener("click", () => {
-  div_form_btn.style.display = "none";
-})
+  const newRow = createTableRow(task, status, goal, progress, rowCount);
+  tableBody.appendChild(newRow);
 
-// Code to remove tasks
-function removeTask(btn) {
-  if (btn) {
-    const row = btn.parentNode.parentNode;
-    
-    if (row) {
-      row.remove();
-    } else {
-      console.error("Row not found!");
-    }
-  } else {
-    console.log("Button not found!");
-  }
+  // Clear the form inputs after adding the task (optional but often good UX)
+  document.querySelector(TASK_INPUT_ID).value = "";
+  document.querySelector(STATUS_INPUT_ID).value = "";
+  document.querySelector(GOAL_INPUT_ID).value = "";
+  document.querySelector(PROGRESS_INPUT_ID).value = "";
+
+  hideForm(); //Close the form after adding the task
 }
+
+// Function to remove a task
+function removeTask(row) { // Now receives the row directly
+  row.remove();
+}
+
+// Functions to show/hide the form (makes code cleaner)
+function showForm() {
+  document.querySelector(FORM_WRAPPER_SELECTOR).style.display = "flex";
+}
+
+function hideForm() {
+  document.querySelector(FORM_WRAPPER_SELECTOR).style.display = "none";
+}
+
+// Event listeners
+document.querySelector(ADD_TASK_BUTTON_ID).addEventListener("click", showForm);
+document.querySelector(CLOSE_BUTTON_SELECTOR).addEventListener("click", hideForm);
+
+// Add event listener to the form's submit button instead of the add task button.
+const form = document.querySelector('.form-wrapper form'); // Select your form element
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form from actually submitting/reloading
+  addNewTask();
+});
