@@ -41,9 +41,6 @@ function createTableData() {
   remove_data.appendChild(remove_btn);
 }
 
-const submit_btn = document.querySelector("#form-btn");
-submit_btn.addEventListener("click", createTableData);
-
 // When click button show popup window to add new task
 const new_task_btn = document.querySelector("#add-new-task-btn");
 const div_form_btn = document.querySelector(".form-wrapper");
