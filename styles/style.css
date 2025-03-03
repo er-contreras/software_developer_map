@@ -89,7 +89,7 @@ tr:nth-child(even) {
   font-size: 2rem;
 }
 
-#task, #status, #goal, #progress {
+#task, #status, #time, #progress {
   height: 4rem;
   font-size: 2rem;
   padding: 1rem;
