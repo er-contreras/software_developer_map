@@ -1,4 +1,3 @@
-// constants.js
 export const TASK_INPUT_ID = "#task";
 export const STATUS_INPUT_ID = "#status";
 export const GOAL_INPUT_ID = "#goal";

@@ -1,4 +1,3 @@
-// taskManager.js
 import {
   TASK_INPUT_ID,
   STATUS_INPUT_ID,
