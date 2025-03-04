@@ -1,7 +1,7 @@
 import {
   TASK_INPUT_ID,
   STATUS_INPUT_ID,
-  GOAL_INPUT_ID,
+  TIME_INPUT_ID,
   PROGRESS_INPUT_ID,
   FORM_WRAPPER_SELECTOR,
   CLOSE_BUTTON_SELECTOR,
@@ -26,7 +26,7 @@ export function startEditingTask(row) {
   const cells = row.querySelectorAll("td");
   document.querySelector(TASK_INPUT_ID).value = cells[0].textContent;
   document.querySelector(STATUS_INPUT_ID).value = cells[1].textContent;
-  document.querySelector(GOAL_INPUT_ID).value = cells[2].textContent;
+  document.querySelector(TIME_INPUT_ID).value = cells[2].textContent;
   document.querySelector(PROGRESS_INPUT_ID).value = cells[3].textContent;
 
   const submitButton = document.querySelector(FORM_SUBMIT_BUTTON_SELECTOR);

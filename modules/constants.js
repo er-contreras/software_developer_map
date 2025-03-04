@@ -1,6 +1,6 @@
 export const TASK_INPUT_ID = "#task";
 export const STATUS_INPUT_ID = "#status";
-export const GOAL_INPUT_ID = "#goal";
+export const TIME_INPUT_ID = "#time";
 export const PROGRESS_INPUT_ID = "#progress";
 export const TABLE_BODY_SELECTOR = "table tbody";
 export const ADD_TASK_BUTTON_ID = "#add-new-task-btn";
