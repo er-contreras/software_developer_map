@@ -3,7 +3,11 @@ require 'uri'
 
 class HttpServer
   HTML_CONTENT = File.read('index.html')
-  CSS_CONTENT = File.exist?('styles/style.css') ? File.read('styles/style.css') : "styles/style.css doesn't exist"
+  CSS_CONTENT = File.exist?('styles/style.css') ? File.read('styles/style.css') : "File style.css doesn't exist!"
+  JS_CONTENT = File.exist?("main.js") ? File.read("main.js") : "File main.js doesn't exist!"
+  MODULE_CONSTANTS = File.exist?("modules/constants.js") ? File.read("modules/constants.js") : "File constants.js doesn't exist!"
+  MODULE_FORM = File.exist?("modules/form.js") ? File.read("modules/form.js") : "File form.js doesn't exist!"
+  MODULE_TASK_MANAGER = File.exist?("modules/taskManager.js") ? File.read("modules/taskManager.js") : "File taskManager.js doesn't exist!" 
 
   def initialize
     @server = TCPServer.new('localhost', 3000)
@@ -43,7 +47,7 @@ class HttpServer
     client.puts "HTTP/1.1 #{status}\r\n" \
                   "Content-Type: #{content_type}\r\n" \
                   "Content-Length: #{body.bytesize}\r\n" \
-                  "Connection: close\r\n\r\n" \
+                  "Connection: Keep-Alive\r\n\r\n" \
                   "#{body}"
   end
 
@@ -53,6 +57,14 @@ class HttpServer
       send_response(client, 200, HTML_CONTENT, 'text/html')
     when '/styles/style.css'
       send_response(client, 200, CSS_CONTENT, 'text/css')
+    when '/main.js'
+      send_response(client, 200, JS_CONTENT, 'text/javascript')
+    when '/modules/constants.js'
+      send_response(client, 200, MODULE_CONSTANTS, 'text/javascript')
+    when '/modules/form.js'
+      send_response(client, 200, MODULE_FORM, 'text/javascript')
+    when '/modules/taskManager.js'
+      send_response(client, 200, MODULE_TASK_MANAGER, 'text/javascript')
     else
       send_response(client, 404, 'Not Found', 'text/plain')
     end
