@@ -2,12 +2,12 @@ require 'socket'
 require 'uri'
 
 class HttpServer
-  HTML_CONTENT = File.read('index.html')
-  CSS_CONTENT = File.exist?('styles/style.css') ? File.read('styles/style.css') : "File style.css doesn't exist!"
-  JS_CONTENT = File.exist?("main.js") ? File.read("main.js") : "File main.js doesn't exist!"
-  MODULE_CONSTANTS = File.exist?("modules/constants.js") ? File.read("modules/constants.js") : "File constants.js doesn't exist!"
-  MODULE_FORM = File.exist?("modules/form.js") ? File.read("modules/form.js") : "File form.js doesn't exist!"
-  MODULE_TASK_MANAGER = File.exist?("modules/taskManager.js") ? File.read("modules/taskManager.js") : "File taskManager.js doesn't exist!" 
+  HTML_CONTENT = File.read('./index.html')
+  CSS_CONTENT = File.exist?('./styles/style.css') ? File.read('./styles/style.css') : "File style.css doesn't exist!"
+  JS_CONTENT = File.exist?("./main.js") ? File.read("./main.js") : "File main.js doesn't exist!"
+  MODULE_CONSTANTS = File.exist?("./modules/constants.js") ? File.read("./modules/constants.js") : "File constants.js doesn't exist!"
+  MODULE_FORM = File.exist?("./modules/form.js") ? File.read("./modules/form.js") : "File form.js doesn't exist!"
+  MODULE_TASK_MANAGER = File.exist?("./modules/taskManager.js") ? File.read("./modules/taskManager.js") : "File taskManager.js doesn't exist!"
 
   def initialize
     @server = TCPServer.new('localhost', 3000)
