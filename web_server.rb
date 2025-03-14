@@ -10,7 +10,7 @@ class HttpServer
   MODULE_TASK_MANAGER = File.exist?("./modules/taskManager.js") ? File.read("./modules/taskManager.js") : "File taskManager.js doesn't exist!"
 
   def initialize
-    @server = TCPServer.new('localhost', 3000)
+    @server = TCPServer.new('0.0.0.0', 3000)
   end
 
   def start

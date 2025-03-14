@@ -16,3 +16,9 @@ localhost, then build your own basic version of it.
 
 1. Frontend of the app
 2. Http web server, needed to pass CORS restriction.
+3. It handles get requests.
+
+## Make it Run
+
+The project is Dockerized so just run:
+`sudo docker-compose up`
