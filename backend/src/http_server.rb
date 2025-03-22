@@ -2,6 +2,8 @@ require 'socket'
 require 'uri'
 
 class HttpServer
+  include Db
+
   HTML_CONTENT = File.read('./index.html')
   CSS_CONTENT = File.exist?('./styles/style.css') ? File.read('./styles/style.css') : "File style.css doesn't exist!"
   JS_CONTENT = File.exist?("./main.js") ? File.read("./main.js") : "File main.js doesn't exist!"
@@ -16,6 +18,7 @@ class HttpServer
   def start
     loop do
       client = @server.accept
+      p client
       handle_request(client)
       client.close
     end

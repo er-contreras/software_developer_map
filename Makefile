@@ -6,3 +6,5 @@ build:
 	sudo docker-compose build
 server:
 	sudo docker-compose run --rm app ruby web_server.rb
+db:
+	sudo docker-compose run --rm app ruby web_database.rb
