@@ -2,14 +2,12 @@ require 'socket'
 require 'uri'
 
 class HttpServer
-  include Db
-
-  HTML_CONTENT = File.read('./index.html')
-  CSS_CONTENT = File.exist?('./styles/style.css') ? File.read('./styles/style.css') : "File style.css doesn't exist!"
-  JS_CONTENT = File.exist?("./main.js") ? File.read("./main.js") : "File main.js doesn't exist!"
-  MODULE_CONSTANTS = File.exist?("./modules/constants.js") ? File.read("./modules/constants.js") : "File constants.js doesn't exist!"
-  MODULE_FORM = File.exist?("./modules/form.js") ? File.read("./modules/form.js") : "File form.js doesn't exist!"
-  MODULE_TASK_MANAGER = File.exist?("./modules/taskManager.js") ? File.read("./modules/taskManager.js") : "File taskManager.js doesn't exist!"
+  HTML_CONTENT = File.read(File.join(Dir.pwd, "/frontend/src/index.html"))
+  CSS_CONTENT = File.read(File.join(Dir.pwd, "/frontend/src/styles/style.css"))
+  JS_CONTENT = File.read(File.join(Dir.pwd, "/frontend/src/main.js"))
+  MODULE_CONSTANTS = File.read(File.join(Dir.pwd, "/frontend/src/modules/constants.js"))
+  MODULE_FORM = File.read(File.join(Dir.pwd, "/frontend/src/modules/form.js"))
+  MODULE_TASK_MANAGER = File.read(File.join(Dir.pwd, "/frontend/src/modules/taskManager.js"))
 
   def initialize
     @server = TCPServer.new('0.0.0.0', 3000)
