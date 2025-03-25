@@ -12,11 +12,11 @@ If I have a problem where the browser is complaining about CORS because doesn al
 the browser to import or export javascript files and you need a web-server to work with 
 localhost, then build your own basic version of it.
 
-## Implementations
+## App Components
 
-1. Frontend of the app
-2. Http web server, needed to pass CORS restriction.
-3. It handles get requests.
+1. Frontend - JavaScript - HTML - CSS 
+2. Http Web Server - Ruby
+3. Database - PostgreSQL
 
 ## Make it Run
 
