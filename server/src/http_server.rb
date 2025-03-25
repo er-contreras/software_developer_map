@@ -16,7 +16,6 @@ class HttpServer
   def start
     loop do
       client = @server.accept
-      p client
       handle_request(client)
       client.close
     end

@@ -35,6 +35,7 @@ export function startEditingTask(row) {
 
 export function handleFormSubmit(event) {
   event.preventDefault();
+
   if (rowToEdit) {
     updateTask(rowToEdit);
     rowToEdit = null;
