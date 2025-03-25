@@ -78,13 +78,13 @@ tr:nth-child(even) {
   transform: translate(-50%, -50%);
 }
 
-.form {
+#add-task {
   display: flex;
   flex-direction: column;
   padding: 0 4rem 4rem 4rem;
 }
 
-.form label {
+#add-task label {
   padding: 2rem 0 0 0;
   font-size: 2rem;
 }
@@ -100,7 +100,7 @@ tr:nth-child(even) {
   padding: 4px;
 }
 
-.form #form-btn {
+#add-task #form-btn {
   padding: 2rem;
   font-size: 3rem;
 }
