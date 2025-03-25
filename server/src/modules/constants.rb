@@ -1,0 +1,6 @@
+HTML_CONTENT = File.read(File.join(Dir.pwd, "/frontend/src/index.html"))
+CSS_CONTENT = File.read(File.join(Dir.pwd, "/frontend/src/styles/style.css"))
+JS_CONTENT = File.read(File.join(Dir.pwd, "/frontend/src/main.js"))
+MODULE_CONSTANTS = File.read(File.join(Dir.pwd, "/frontend/src/modules/constants.js"))
+MODULE_FORM = File.read(File.join(Dir.pwd, "/frontend/src/modules/form.js"))
+MODULE_TASK_MANAGER = File.read(File.join(Dir.pwd, "/frontend/src/modules/taskManager.js"))
