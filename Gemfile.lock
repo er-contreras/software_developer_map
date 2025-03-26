@@ -1,0 +1,18 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dotenv (3.1.7)
+    pg (1.5.9)
+    stripe (13.5.0)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  dotenv
+  pg
+  stripe
+
+BUNDLED WITH
+   2.6.2

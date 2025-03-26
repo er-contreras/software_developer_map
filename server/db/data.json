@@ -1,5 +1,0 @@
-task = {
-  name: "Task 1",
-  time: "1hr",
-  status: "Task has been created successfully",
-}
