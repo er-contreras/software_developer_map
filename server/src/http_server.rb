@@ -5,8 +5,9 @@ require_relative './modules/data_sender.rb'
 require_relative './modules/data_handler.rb'
 
 class HttpServer
+  include DataHandler
   include DataSender
-
+  
   def initialize
     @server = TCPServer.new('0.0.0.0', 3000)
   end
