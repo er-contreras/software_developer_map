@@ -1,14 +1,14 @@
 module DataHandler
   def handle_request(client)
     request_line = client.gets
-  
+
     unless request_line
       send_response(client, 400, 'Bad Request', 'text/plain')
       return
     end
   
     method, path, http_version = request_line.split
-  
+
     case method
     when 'GET'
       handle_get_request(client, path)
