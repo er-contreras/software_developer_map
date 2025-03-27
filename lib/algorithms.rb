@@ -18,9 +18,7 @@ module Algos
 
   def selection_sort; end
 
-  class MergeSort
-    def merge_sort; end
-  end
+  def merge_sort; end
 
   def bubble_sort; end
 
