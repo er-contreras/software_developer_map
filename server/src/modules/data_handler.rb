@@ -1,3 +1,5 @@
+require 'json'
+
 module DataHandler
   def handle_request(client)
     request_line = client.gets
