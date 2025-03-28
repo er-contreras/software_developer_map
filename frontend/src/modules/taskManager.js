@@ -48,15 +48,32 @@ export function updateTask(rowToEdit) {
   cells[3].textContent = progress;
 }
 
-export function addNewTask() {
+export async function addNewTask() {
   const task = document.querySelector(TASK_INPUT_ID).value;
   const status = document.querySelector(STATUS_INPUT_ID).value;
   const time = document.querySelector(TIME_INPUT_ID).value;
   const progress = document.querySelector(PROGRESS_INPUT_ID).value;
   const tableBody = document.querySelector(TABLE_BODY_SELECTOR);
 
+  const url = 'http://127.0.0.1:3000/post'
+
+  const postTask = await fetch(url, {
+    mode: 'no-cors',
+    method: 'POST',
+    body: JSON.stringify({
+      task: task,
+    }),
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  });
+
+  const response = await postTask.text();
+  console.log(response);
+
   const rowCount = tableBody.querySelectorAll('tr[id^="task-row-"]').length;
   const newRow = createTableRow(task, status, time, progress, rowCount);
+
   tableBody.appendChild(newRow);
 
   document.querySelector(TASK_INPUT_ID).value = "";
