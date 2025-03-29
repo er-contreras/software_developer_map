@@ -58,10 +58,12 @@ export async function addNewTask() {
   const url = 'http://127.0.0.1:3000/post'
 
   const postTask = await fetch(url, {
-    mode: 'no-cors',
     method: 'POST',
     body: JSON.stringify({
       task: task,
+      status: status,
+      time: time,
+      progress: progress
     }),
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
