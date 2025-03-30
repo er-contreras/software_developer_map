@@ -6,3 +6,5 @@ gem 'pg'
 gem "stripe"
 
 gem 'dotenv'
+
+gem 'rake'
