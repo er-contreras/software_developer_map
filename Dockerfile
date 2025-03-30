@@ -4,5 +4,6 @@ FROM ruby:${RUBY_VERSION}
 
 WORKDIR /usr/src/app
 
-RUN bundle init && bundle install
+COPY Gemfile Gemfile.lock ./
 
+RUN bundle install
