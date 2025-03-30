@@ -55,7 +55,7 @@ export async function addNewTask() {
   const progress = document.querySelector(PROGRESS_INPUT_ID).value;
   const tableBody = document.querySelector(TABLE_BODY_SELECTOR);
 
-  const url = 'http://127.0.0.1:3000/post'
+  const url = 'http://localhost:3000/post'
 
   const postTask = await fetch(url, {
     method: 'POST',
