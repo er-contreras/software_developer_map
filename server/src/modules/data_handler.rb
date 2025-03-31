@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'json'
 
+# DataHandler
 module DataHandler
   def handle_request(client)
     request_line = client.gets
@@ -8,8 +11,8 @@ module DataHandler
       send_response(client, 400, 'Bad Request', 'text/plain')
       return
     end
-  
-    method, path, http_version = request_line.split
+
+    method, path, _http_version = request_line.split
 
     case method
     when 'GET'
@@ -20,7 +23,7 @@ module DataHandler
       send_response(client, 405, 'Method Not Allowed', 'text/plain')
     end
   end
-  
+
   def handle_get_request(client, path)
     case path
     when '/'
@@ -48,20 +51,16 @@ module DataHandler
 
       # Read headers until an empty line
       while (line = client.gets&.chomp) && !line.empty?
-        if line.downcase.start_with?('content-length:')
-          content_length_header = line
-        end
+        content_length_header = line if line.downcase.start_with?('content-length:')
 
         parts = line.split(':', 2)
 
-        if parts.length == 2
-          headers[parts[0].strip.downcase] = parts[1].strip
-        end
+        headers[parts[0].strip.downcase] = parts[1].strip if parts.length == 2
       end
 
       if content_length_header
         content_length = content_length_header.split(':')[1].strip.to_i
-        body = client.read(content_length) # This is magic, how just by reading the length of the content retrieve the body?
+        body = client.read(content_length)
 
         begin
           parsed_body = JSON.parse(body)
@@ -70,9 +69,12 @@ module DataHandler
           task_value = parsed_body['task']
           puts "Task data: #{task_value}"
 
-          # Here you would typically save the 'task_value' to your database
-
-          send_response(client, 200, JSON.generate({ message: 'Task has been created successfully', received_data: parsed_body }), 'application/json')
+          send_response(
+            client,
+            200,
+            JSON.generate({ message: 'Task has been created successfully', received_data: parsed_body }),
+            'application/json'
+          )
         rescue JSON::ParserError
           send_response(client, 400, 'Invalid JSON in request body', 'text/plain')
         end
