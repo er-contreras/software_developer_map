@@ -25,4 +25,4 @@ class HttpServer
 end
 
 server = HttpServer.new
-server.start
+server.send :start
