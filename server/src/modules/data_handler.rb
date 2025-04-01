@@ -43,20 +43,26 @@ module DataHandler
     end
   end
 
+  def read_headers(client)
+    content_length_header = nil
+    headers = {}
+
+    # Read headers until an empty line
+    while (line = client.gets&.chomp) && !line.empty?
+      content_length_header = line if line.downcase.start_with?('content-length:')
+
+      parts = line.split(':', 2)
+
+      headers[parts[0].strip.downcase] = parts[1].strip if parts.length == 2
+    end
+
+    content_length_header
+  end
+
   def handle_post_request(client, path)
     case path
     when '/post'
-      content_length_header = nil
-      headers = {}
-
-      # Read headers until an empty line
-      while (line = client.gets&.chomp) && !line.empty?
-        content_length_header = line if line.downcase.start_with?('content-length:')
-
-        parts = line.split(':', 2)
-
-        headers[parts[0].strip.downcase] = parts[1].strip if parts.length == 2
-      end
+      content_length_header = read_headers(client)
 
       if content_length_header
         content_length = content_length_header.split(':')[1].strip.to_i
