@@ -37,4 +37,16 @@ RSpec.describe HttpServer do
       expect { server.setup_server }.to output(/Server listening on #{host}:#{port}/).to_stdout
     end
   end
+
+  describe '#setup_server when port is in use' do
+    before do
+      allow(TCPServer).to receive(:new).with(host, port).and_raise(Errno::EADDRINUSE)
+      allow(server).to receive(:exit).with(1)
+    end
+
+    it 'failes because of port is in use' do
+      expect { server.setup_server }.to output(/Error: Port #{port} already in use./).to_stdout
+      expect(server).to have_received(:exit).with(1)
+    end
+  end
 end
