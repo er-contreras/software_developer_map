@@ -29,10 +29,11 @@ class HttpServer
 
   def start
     setup_server unless @server
+    client = nil
 
     loop do
       client = @server.accept
-      puts "Accept connection from #{client.peeraddr.inspect}"
+      puts "Accepted connection from #{client.peeraddr.inspect}"
       handle_request(client)
     ensure
       client&.close

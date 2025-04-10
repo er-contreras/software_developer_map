@@ -10,6 +10,8 @@ RSpec.describe HttpServer do
 
   subject(:server) { described_class.new(host, port) }
 
+  let(:mock_tcp_server) { instance_double(TCPServer, close: nil) }
+
   describe '#initialize' do
     it 'initializes with host and port' do
       expect(server.instance_variable_get(:@server)).to be_nil
@@ -17,8 +19,6 @@ RSpec.describe HttpServer do
   end
 
   describe '#setup_server' do
-    let(:mock_tcp_server) { instance_double(TCPServer, close: nil) }
-
     before do
       allow(TCPServer).to receive(:new).with(host, port).and_return(mock_tcp_server)
     end
@@ -47,6 +47,32 @@ RSpec.describe HttpServer do
     it 'failes because of port is in use' do
       expect { server.setup_server }.to output(/Error: Port #{port} already in use./).to_stdout
       expect(server).to have_received(:exit).with(1)
+    end
+  end
+
+  describe '#start' do
+    let(:mock_client) do
+      instance_double(TCPSocket, peeraddr: ['AF_INET', 12_345, '127.0.0.1', '127.0.0.1'], close: nil)
+    end
+
+    before do
+      allow(TCPServer).to receive(:new).and_return(mock_tcp_server)
+      allow(mock_tcp_server).to receive(:accept).and_return(mock_client).and_raise(Interrupt)
+
+      calls = 0
+      allow(mock_tcp_server).to receive(:accept) do
+        calls += 1
+        raise Interrupt unless calls == 1
+
+        mock_client
+      end
+
+      allow(server).to receive(:handle_request)
+    end
+
+    it 'accepts a connetion and hadles the request' do
+      expect(server).to receive(:handle_request).with(mock_client).once
+      expect { server.start }.to raise_error(Interrupt)
     end
   end
 end
