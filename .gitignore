@@ -3,3 +3,5 @@
 .env
 
 server.log
+
+.rake_task*
