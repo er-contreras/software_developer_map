@@ -1,5 +1,4 @@
-![task-system](https://github.com/user-attachments/assets/ad0141b3-8287-4945-aa42-51db35ef3935)
-
+![task-done](https://github.com/user-attachments/assets/4a3536e8-2a2e-48e3-b8c2-5b7463b42d82)
 
 This is a project where I should implement whatever is not as built-in in the
 programming language.
