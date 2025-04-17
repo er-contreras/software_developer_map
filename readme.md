@@ -1,19 +1,21 @@
 ![Untitled-2025-04-16-1127](https://github.com/user-attachments/assets/d7e4def8-8909-42e2-b7a9-2d63d308ab7d)
 
+## TASK QUANTIFIER SYSTEM
 
-This is a project where I should implement whatever is not as built-in in the
-programming language.
+This project quantifies and reports how much a user has done. It might sound counterintuitive ‘cause we might be used to first setting a schedule and following it until the end of the day, that way we may feel we are making progress towards our goal. It is a good way to accomplish what we have proposed to help us achieve them and what we think will make us succeed, in other words earn money and make a living. We might hold that rhythm for days, weeks or months but at the end of the day we end up making changes to our plan either we find something better to improve it or just because it is not viable anymore. So why not record all that time we have decided to spend on a task, reviewing it and keep making changes.
 
-For example:
+More humanised plan rather than the fixed one.
 
-If the programming language doesn't have a a library to handle http request
-I should implement one by my own.
+## Features order by priority:
 
-Or 
+Include a mental map, UML or Tree to have a big picture.
 
-If I have a problem where the browser is complaining about CORS because doesn allow 
-the browser to import or export javascript files and you need a web-server to work with 
-localhost, then build your own basic version of it.
+1. Users can add, delete and edit a task.
+2. Users can track all the changes or progress made as a log tracker.
+3. Database can keep track of the books I’ve read or follow the current chapter and if it has a project implementation to practice.
+4. Users can check any topic each day so I can keep a history of all the subjects or topics I have been lost or done through the day.
+5. Tasks can be set at a random time each day, not necessarily have to be the same hour at the same time.
+6. Users can receive whatsapp messages through the application and response back.
 
 ## App Components
 
